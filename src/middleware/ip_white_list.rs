@@ -38,11 +38,11 @@ impl<S> FromRequestParts<S> for IpWhiteList
                     }
                 };
                 let headers = &parts.headers;
-                const X_REAL_IP: &str = "X-Real-IP";
-                if headers.contains_key(X_REAL_IP) {
-                    let remote = headers.get(X_REAL_IP).unwrap();
+                let x_real_ip_key = "X-Real-IP";
+                if headers.contains_key(x_real_ip_key) {
+                    let remote = headers.get(x_real_ip_key).unwrap();
                     if let Ok(remote) = remote.to_str() {
-                        info!("{}:{}",X_REAL_IP, remote);
+                        info!("{}:{}",x_real_ip_key, remote);
                         return return_fn(remote);
                     }
                 }

@@ -1,0 +1,31 @@
+log:
+  console-log: true
+  file-log:
+    enable: false
+    log-path: ./logs
+    log-prefix: app-log
+mysql:
+  host: localhost
+  port: 3306
+  username: root
+  password: admin_123
+  database: market
+  max-connections: 100
+  min-connections: 10
+app:
+  aliyun:
+    market:
+      #set app code here or set by env
+      app-code:
+      shumai:
+        http-domain: http://bankaddress.shumaidata.com/bankaddress
+      lianzhuo:
+        http-domain: http://cardinfo.market.alicloudapi.com/lianzhuo/querybankcard
+  white-list:
+    enable: true
+    ip-white-list:
+      - 127.0.0.1
+server:
+  port: 8991
+  addr: 0.0.0.0
+
